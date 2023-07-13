@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+    <style>
+        /* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Estilos de los mensajes de la página de inicio */
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+p {
+  color: #666;
+  text-align: center;
+}
+
+/* Estilos de los menús */
+.menu-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.menu-list li {
+  margin-right: 20px;
+}
+
+.menu-list li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-list li a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos de los enlaces generales */
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'listado_cursos' %}">Cursos</a></li>
+                <li><a href="{% url 'agregar_curso' %}">Crear Curso</a></li>
+                <li><a href="{% url 'listado_carreras' %}">Carreras</a></li>
+                <li><a href="{% url 'agregar_carrera' %}">Crear Carrera</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>Bienvenido a mi sitio web</h1>
+        <p>Elige una opción del menú para comenzar.</p>
+    </div>
+</body>
+</html>
