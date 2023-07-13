@@ -12,3 +12,14 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+from django.db import models
+
+class Career(models.Model):
+    name = models.CharField(max_length=100)
+    shortname = models.CharField(max_length=20)
+    image = models.ImageField(upload_to='careers/')
+    state = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name

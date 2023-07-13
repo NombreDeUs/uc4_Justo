@@ -53,4 +53,27 @@ def agregar_carrera(request):
 def inicio(request):
    return render(request, 'inicio.html')
 
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Career
 
+def listar_carreras(request):
+    carreras = Career.objects.all()
+    return render(request, 'listado_carreras.html', {'carreras': carreras})
+
+def eliminar_carrera(request, carrera_id):
+    carrera = Career.objects.get(pk=carrera_id)
+    carrera.delete()
+    messages.success(request, 'Carrera eliminada exitosamente.')
+    return redirect('listado_carreras')
+
+def crear_carrera(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        shortname = request.POST['shortname']
+        image = request.FILES['image']
+        state = request.POST['state']
+        Career.objects.create(name=name, shortname=shortname, image=image, state=state)
+        messages.success(request, 'Carrera creada exitosamente.')
+        return redirect('listado_carreras')
+    return render(request, 'agregar_carrera.html')

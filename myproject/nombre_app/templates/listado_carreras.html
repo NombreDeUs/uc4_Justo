@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Listado de Carreras</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
-</head>
-<body>
-    <h1>Listado de Carreras</h1>
-</body>
-</html>
+{% for carrera in carreras %}
+    <p>{{ carrera.name }} - {{ carrera.shortname }}</p>
+    <img src="{{ carrera.image.url }}" alt="{{ carrera.name }}">
+    <form action="{% url 'eliminar_carrera' carrera.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+{% empty %}
+    <p>No hay carreras disponibles.</p>
+{% endfor %}

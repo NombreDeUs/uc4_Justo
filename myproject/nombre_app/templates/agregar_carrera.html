@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Agregar Carrera</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
-</head>
-<body>
-    <h1>Agregar Carrera</h1>
-</body>
-</html>
+{% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<form action="{% url 'crear_carrera' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="name">Nombre:</label>
+    <input type="text" name="name"><br>
+    <label for="shortname">Nombre corto:</label>
+    <input type="text" name="shortname"><br>
+    <label for="image">Imagen:</label>
+    <input type="file" name="image"><br>
+    <label for="state">Estado:</label>
+    <input type="text" name="state"><br>
+    <button type="submit">Crear</button>
+</form>
