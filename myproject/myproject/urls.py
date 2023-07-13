@@ -18,9 +18,13 @@ from nombre_app import views
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
-    path('cursos/', views.listado_cursos, name='listado_cursos'),
-    path('crear_curso/', views.agregar_curso, name='agregar_curso'),
+    
+    path('cursos/crear/', views.crear_curso, name='agregar_curso'),
     path('carreras/', views.listado_carreras, name='listado_carreras'),
     path('crear_carrera/', views.agregar_carrera, name='agregar_carrera'),
+    path('cursos/', views.listar_cursos, name='listado_cursos'),
+    path('cursos/eliminar/<int:curso_id>/', views.eliminar_curso, name='eliminar_curso'),
+    path('cursos/crear/', views.crear_curso, name='crear_curso'),
 ]
+
 

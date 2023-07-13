@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Listado de Cursos</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
-</head>
-<body>
-    <h1>Listado de Cursos</h1>
-</body>
-</html>
+{% for curso in cursos %}
+    <p>{{ curso.name }} - {{ curso.code }}</p>
+    <form action="{% url 'eliminar_curso' curso.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+{% empty %}
+    <p>No hay cursos disponibles.</p>
+{% endfor %}
